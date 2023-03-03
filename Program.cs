@@ -31,6 +31,7 @@ Courage Factor: {courage}");
             Member member = new Member(name, skill, courage);
             HeistCrew.Add(member);
 
+            Console.WriteLine("");
             Console.WriteLine("Do you need another member? (Yes/No)");
             string answer = Console.ReadLine().ToLower();
             if (answer == "yes")
@@ -53,7 +54,12 @@ Courage Factor: {courage}");
             //                 Console.WriteLine("-------------");
             //             }
 
+            Random r = new Random();
+            int Luck = r.Next(-10, 10);
+
             int BankSecurity = 100;
+            BankSecurity += Luck;
+
 
             int CrewSkill = 0;
 
@@ -61,6 +67,8 @@ Courage Factor: {courage}");
             {
                 CrewSkill += crewMem.SkillLevel;
             }
+
+            Console.WriteLine($"The bank's security level is {BankSecurity}, and you crew has {CrewSkill} skill.");
 
             if (CrewSkill >= BankSecurity)
             {
